@@ -1,0 +1,11 @@
+{
+  "firm": "Germin8 Advisors / Jain S A K & Co.",
+  "clients": [
+    {
+      "id": "lessonboard_fy2025_26",
+      "name": "Lessonboard Edu Solutions Private Limited",
+      "fy": "2025-26",
+      "file": "clients/lessonboard_fy2025_26.json"
+    }
+  ]
+}

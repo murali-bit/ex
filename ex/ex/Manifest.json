@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "MCA ADT-1 Form Auto-Filler Pro",
+  "version": "2.1",
+  "description": "Fully automated MCA ADT-1 auditor appointment form filler with smart pincode handling",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.mca.gov.in/*",
+    "https://*.mca.gov.in/*",
+    "https://api.postalpincode.in/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.mca.gov.in/*", "https://*.mca.gov.in/*"],
+      "js": ["ContentDynamic.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "Popup.html",
+    "default_title": "MCA ADT-1 Auto-Filler Pro"
+  }
+}

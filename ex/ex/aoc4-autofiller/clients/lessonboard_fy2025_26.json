@@ -1,0 +1,195 @@
+{
+  "clientId": "lessonboard_fy2025_26",
+  "displayName": "Lessonboard Edu Solutions Private Limited (FY 2025-26)",
+  "source": "Lessonboard_Financials_FY2025-26.pdf",
+  "note": "Figures scaled from Rs. '00 (hundreds) in PDF to absolute Rupees (x100).",
+
+  "general": {
+    "CIN": "U69200KA2026PTC218120",
+    "AUTHORIZED_CAPITAL": 100000,
+    "MEMBER_COUNT": 2,
+    "FY_FROM": "01/04/2025",
+    "FY_TO": "31/03/2026",
+    "BOARD_MEETING_DATE": "30/09/2026",
+    "NATURE_FS": "adopted",
+    "PROVISIONAL_FILED_EARLIER": "Not applicable",
+    "ADOPTED_IN_ADJOURNED_AGM": "No",
+    "BOARD_REPORT_DATE": "30/09/2026",
+    "AUDITOR_SIGN_DATE": "30/09/2026",
+    "AGM_HELD": "Yes",
+    "AGM_DATE": "30/09/2026",
+    "AGM_DUE_DATE": "30/09/2026",
+    "AGM_EXTENSION": "No",
+
+    "IS_SUBSIDIARY": "No",
+    "HOLDING_CIN": "",
+    "HOLDING_NAME": "",
+    "HAS_SUBSIDIARY_JV": "No",
+
+    "INDUSTRY_TYPE": "Education",
+    "SCHEDULE_III_APPLICABLE": "Yes",
+    "CONSOLIDATED_FS_REQUIRED": "No",
+    "BOOKS_ELECTRONIC": "Yes"
+  },
+
+  "signatoriesFS": [
+    { "din": "08302207", "name": "Punit Ahuja", "designation": "Director", "date": "30/09/2026" },
+    { "din": "08302208", "name": "Kirti Punit Ahuja", "designation": "Director", "date": "30/09/2026" },
+    { "din": "09156234", "name": "Rahul Sharma", "designation": "Managing Director", "date": "30/09/2026" },
+    { "din": "BXRPS4521K", "name": "Neha Gupta", "designation": "CFO", "date": "30/09/2026" },
+    { "din": "CZTPG7832L", "name": "Amit Verma", "designation": "Secretary", "date": "30/09/2026" }
+  ],
+
+  "signatoriesBR": [
+    { "din": "08302207", "name": "Punit Ahuja", "designation": "Director", "date": "30/09/2026" },
+    { "din": "08302208", "name": "Kirti Punit Ahuja", "designation": "Director", "date": "30/09/2026" },
+    { "din": "09156234", "name": "Rahul Sharma", "designation": "Managing Director", "date": "30/09/2026" }
+  ],
+
+  "auditor": {
+    "ADT_SRN": "",
+    "NUM_AUDITORS": "1",
+    "AUDITOR_PAN": "",
+    "AUDITOR_CATEGORY": "Auditor's firm",
+    "AUDITOR_FIRM_REG": "018971S",
+    "AUDITOR_NAME": "Jain S A K & Co.",
+    "AUDITOR_ADDR1": "",
+    "AUDITOR_ADDR2": "",
+    "AUDITOR_COUNTRY": "India",
+    "AUDITOR_PIN": "",
+    "AUDITOR_CITY": "Bangalore",
+    "AUDITOR_STATE": "Karnataka",
+    "MEMBER_NAME": "Sumit Jain",
+    "MEMBER_NUMBER": "235818"
+  },
+
+  "balanceSheet": {
+    "scaleNote": "All values in absolute Rupees.",
+    "current": {
+      "asOf": "31/03/2026",
+      "SHARE_CAPITAL": 100000,
+      "RESERVES_SURPLUS": 1014800,
+      "MONEY_AGAINST_WARRANTS": 0,
+      "SHARE_APP_PENDING": 0,
+      "LONG_TERM_BORROWINGS": 0,
+      "DEFERRED_TAX_LIAB": 0,
+      "OTHER_LONG_TERM_LIAB": 0,
+      "LONG_TERM_PROVISIONS": 0,
+      "SHORT_TERM_BORROWINGS": 0,
+      "TRADE_PAYABLES_MSME": 0,
+      "TRADE_PAYABLES_OTHER": 44900,
+      "OTHER_CURRENT_LIAB": 46000,
+      "SHORT_TERM_PROVISIONS": 0,
+      "TOTAL_EQUITY_LIABILITIES": 1205700,
+
+      "PPE": 257600,
+      "INTANGIBLE_ASSETS": 357000,
+      "CWIP": 0,
+      "INTANGIBLE_UNDER_DEV": 0,
+      "NON_CURRENT_INVESTMENTS": 0,
+      "DEFERRED_TAX_ASSETS": 0,
+      "LONG_TERM_LOANS_ADVANCES": 0,
+      "OTHER_NON_CURRENT_ASSETS": 0,
+      "CURRENT_INVESTMENTS": 0,
+      "INVENTORIES": 0,
+      "TRADE_RECEIVABLES": 19000,
+      "CASH_EQUIVALENTS": 148500,
+      "SHORT_TERM_LOANS_ADVANCES": 0,
+      "OTHER_CURRENT_ASSETS": 423600,
+      "TOTAL_ASSETS": 1205700
+    },
+    "previous": {
+      "asOf": "31/03/2025",
+      "SHARE_CAPITAL": 100000,
+      "RESERVES_SURPLUS": 3342800,
+      "MONEY_AGAINST_WARRANTS": 0,
+      "SHARE_APP_PENDING": 0,
+      "LONG_TERM_BORROWINGS": 519000,
+      "DEFERRED_TAX_LIAB": 0,
+      "OTHER_LONG_TERM_LIAB": 0,
+      "LONG_TERM_PROVISIONS": 0,
+      "SHORT_TERM_BORROWINGS": 312400,
+      "TRADE_PAYABLES_MSME": 0,
+      "TRADE_PAYABLES_OTHER": 241400,
+      "OTHER_CURRENT_LIAB": 311800,
+      "SHORT_TERM_PROVISIONS": 314300,
+      "TOTAL_EQUITY_LIABILITIES": 5141700,
+
+      "PPE": 1659300,
+      "INTANGIBLE_ASSETS": 715000,
+      "CWIP": 0,
+      "INTANGIBLE_UNDER_DEV": 0,
+      "NON_CURRENT_INVESTMENTS": 0,
+      "DEFERRED_TAX_ASSETS": 0,
+      "LONG_TERM_LOANS_ADVANCES": 0,
+      "OTHER_NON_CURRENT_ASSETS": 0,
+      "CURRENT_INVESTMENTS": 0,
+      "INVENTORIES": 0,
+      "TRADE_RECEIVABLES": 77600,
+      "CASH_EQUIVALENTS": 2527200,
+      "SHORT_TERM_LOANS_ADVANCES": 50000,
+      "OTHER_CURRENT_ASSETS": 112600,
+      "TOTAL_ASSETS": 5141700
+    }
+  },
+
+  "profitLoss": {
+    "current": {
+      "period": "FY 2025-26",
+      "REVENUE_OPERATIONS": 2368500,
+      "OTHER_INCOME": 6400,
+      "TOTAL_INCOME": 2374900,
+      "EMPLOYEE_EXPENSES": 2091400,
+      "FINANCE_COSTS": 45300,
+      "DEPRECIATION": 596500,
+      "OTHER_EXPENSES": 1969700,
+      "TOTAL_EXPENSES": 4702900,
+      "PROFIT_BEFORE_TAX": -2328000,
+      "CURRENT_TAX": 0,
+      "DEFERRED_TAX": 0,
+      "TOTAL_TAX": 0,
+      "PROFIT_AFTER_TAX": -2328000,
+      "EPS_BASIC": -23.28,
+      "EPS_DILUTED": -23.28
+    },
+    "previous": {
+      "period": "FY 2024-25",
+      "REVENUE_OPERATIONS": 9961600,
+      "OTHER_INCOME": 2900,
+      "TOTAL_INCOME": 9964500,
+      "EMPLOYEE_EXPENSES": 5365500,
+      "FINANCE_COSTS": 80600,
+      "DEPRECIATION": 735500,
+      "OTHER_EXPENSES": 3410500,
+      "TOTAL_EXPENSES": 9592100,
+      "PROFIT_BEFORE_TAX": 372400,
+      "CURRENT_TAX": 58100,
+      "DEFERRED_TAX": 0,
+      "TOTAL_TAX": 58100,
+      "PROFIT_AFTER_TAX": 314300,
+      "EPS_BASIC": 3.14,
+      "EPS_DILUTED": 3.14
+    }
+  },
+
+  "shareCapital": {
+    "FACE_VALUE": 10,
+    "AUTH_SHARES": 10000,
+    "ISSUED_SHARES": 10000,
+    "PAID_UP_SHARES": 10000,
+    "AUTH_NOMINAL": 100000,
+    "ISSUED_NOMINAL": 100000,
+    "PAID_UP_NOMINAL": 100000
+  },
+
+  "shareholders": [
+    { "name": "Punit Ahuja", "shares": 5000, "percent": 50, "din": "08302207", "role": "Director" },
+    { "name": "Kirti Punit Ahuja", "shares": 5000, "percent": 50, "din": "08302208", "role": "Director" }
+  ],
+
+  "relatedParty": { "ANY_TRANSACTION": "No" },
+  "disclosures": {
+    "CAG_COMMENTED": "Not applicable",
+    "SECRETARIAL_AUDIT_APPLICABLE": "No"
+  }
+}

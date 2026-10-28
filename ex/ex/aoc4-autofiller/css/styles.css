@@ -1,0 +1,109 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+  width: 420px;
+  background: #f6f7fb;
+  color: #1f2937;
+  font-size: 13px;
+}
+.hdr {
+  background: linear-gradient(135deg, #1e3a8a, #3730a3);
+  color: #fff;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.hdr h1 { font-size: 15px; font-weight: 600; }
+.hdr small { font-size: 10px; opacity: 0.85; display: block; margin-top: 2px; }
+.hdr .ver { font-size: 11px; opacity: 0.75; }
+.box select, .box input[type="file"] {
+  width: 100%; padding: 7px 9px; border: 1px solid #d1d5db;
+  border-radius: 4px; font-size: 12px; background: #fff;
+}
+.box small { color: #6b7280; font-size: 10px; display: block; margin-top: 4px; }
+
+.tabs { display: flex; background: #fff; border-bottom: 1px solid #e5e7eb; }
+.tab {
+  flex: 1; padding: 10px; border: 0; background: transparent;
+  cursor: pointer; font-size: 12px; color: #6b7280;
+  border-bottom: 2px solid transparent;
+}
+.tab.active { color: #1e3a8a; border-bottom-color: #1e3a8a; font-weight: 600; }
+
+.status { padding: 10px 14px 0; }
+.status:has(.hidden + .hidden) { padding: 0; }
+.status .progress, .status .msg { margin-bottom: 0; margin-top: 0; }
+.status .progress + .msg { margin-top: 8px; }
+.panel { display: none; padding: 14px; }
+.panel.active { display: block; }
+
+.box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+.box label { display: block; font-size: 12px; font-weight: 500; margin-bottom: 6px; color: #374151; }
+.box input[type="text"],
+.box input[type="email"],
+.box input[type="file"] {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.box.opts label { font-weight: 400; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+
+.row { display: flex; gap: 8px; margin-bottom: 10px; }
+button {
+  flex: 1; padding: 9px 10px; border: 1px solid #d1d5db;
+  background: #fff; border-radius: 4px; cursor: pointer; font-size: 12px;
+}
+button.primary {
+  background: #1e3a8a; color: #fff; border-color: #1e3a8a; font-weight: 500;
+}
+button.primary:disabled { background: #9ca3af; border-color: #9ca3af; cursor: not-allowed; }
+button:hover:not(:disabled) { filter: brightness(1.05); }
+
+.progress {
+  position: relative; height: 20px; background: #e5e7eb;
+  border-radius: 4px; overflow: hidden; margin-bottom: 10px;
+}
+.progress-fill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: #10b981; width: 0%; transition: width 0.2s;
+}
+.progress-text {
+  position: absolute; top: 0; left: 0; width: 100%;
+  text-align: center; line-height: 20px; font-size: 11px; font-weight: 600;
+}
+
+.msg { padding: 9px 12px; border-radius: 4px; margin-bottom: 10px; font-size: 12px; }
+.msg.success { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
+.msg.error   { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+.msg.info    { background: #dbeafe; color: #1e3a8a; border: 1px solid #3b82f6; }
+.msg.warning { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+
+.field-list { list-style: none; max-height: 240px; overflow-y: auto; margin-bottom: 10px; }
+.field-list li {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 5px 6px; border-bottom: 1px solid #f3f4f6;
+  font-size: 11px;
+}
+.field-list li .fname { font-weight: 500; color: #374151; flex: 1; }
+.field-list li .fval  { color: #6b7280; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.field-list li .fstat { font-size: 10px; padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+.fstat.filled  { background: #d1fae5; color: #065f46; }
+.fstat.empty   { background: #fee2e2; color: #991b1b; }
+.fstat.skipped { background: #fef3c7; color: #92400e; }
+
+.logs {
+  background: #111827; color: #d1d5db; padding: 10px; border-radius: 4px;
+  font-family: Consolas, Menlo, monospace; font-size: 10px;
+  max-height: 320px; overflow: auto; white-space: pre-wrap;
+}
+.hidden { display: none !important; }
+h3 { font-size: 13px; margin-bottom: 8px; color: #111827; }

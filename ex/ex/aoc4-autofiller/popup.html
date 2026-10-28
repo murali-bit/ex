@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AOC-4 Auto Filler</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hdr">
+    <div>
+      <h1>AOC-4 Auto Filler</h1>
+      <small id="firmName">Germin8 Advisors</small>
+    </div>
+    <span class="ver">v1.1</span>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="main">Client</button>
+    <button class="tab" data-tab="pdf">PDF</button>
+    <button class="tab" data-tab="preview">Preview</button>
+    <button class="tab" data-tab="debug">Debug</button>
+    <button class="tab" data-tab="logs">Logs</button>
+  </nav>
+
+  <div class="status">
+    <div id="progressWrap" class="progress hidden">
+      <div class="progress-fill" id="progressFill"></div>
+      <span class="progress-text" id="progressText">0 / 0</span>
+    </div>
+    <div id="message" class="msg hidden"></div>
+  </div>
+
+  <section id="tab-main" class="panel active">
+    <div class="box">
+      <label>Select Client</label>
+      <select id="clientSelect">
+        <option value="">— choose a client —</option>
+      </select>
+    </div>
+
+    <div class="box">
+      <label>Section to fill</label>
+      <select id="phaseSelect"></select>
+    </div>
+
+    <div class="box opts">
+      <label><input type="checkbox" id="autoSubmit" checked /> Click the section's Save after filling</label>
+      <label><input type="checkbox" id="showPreview" checked /> Show preview before fill</label>
+    </div>
+
+    <div class="row">
+      <button id="loadBtn" class="primary">Load Client</button>
+      <button id="fillBtn" class="primary" disabled>Fill Form</button>
+    </div>
+
+    <div id="clientInfo" class="box hidden">
+      <h3 id="ciName">—</h3>
+      <small id="ciSource"></small>
+    </div>
+  </section>
+
+  <section id="tab-pdf" class="panel">
+    <div class="box">
+      <label>Upload PDF (optional, ≤10MB)</label>
+      <input type="file" id="pdfInput" accept="application/pdf" />
+      <small>Use only for ad-hoc clients. Known clients come from the Client tab.</small>
+    </div>
+    <button id="extractBtn" class="primary">Extract PDF Text</button>
+    <pre id="pdfRaw" class="logs"></pre>
+  </section>
+
+  <section id="tab-preview" class="panel">
+    <h3 id="previewTitle">Values to be filled</h3>
+    <ul id="fieldList" class="field-list"></ul>
+    <div class="row">
+      <button id="confirmBtn" class="primary">Confirm & Fill</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </section>
+
+  <section id="tab-debug" class="panel">
+    <div class="row">
+      <button id="scanBtn" class="primary">Scan Form Fields</button>
+      <button id="copyScanBtn">Copy JSON</button>
+    </div>
+    <div id="scanSummary" class="msg info hidden"></div>
+    <pre id="scanOut" class="logs">(no scan yet)</pre>
+  </section>
+
+  <section id="tab-logs" class="panel">
+    <div class="row">
+      <button id="refreshLogs">Refresh</button>
+      <button id="clearLogs">Clear</button>
+    </div>
+    <pre id="logView" class="logs"></pre>
+  </section>
+
+  <script src="libs/pdf.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/field-mapper.js"></script>
+  <script src="js/validator.js"></script>
+  <script src="js/pdf-extractor.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCA ADT-1 Auto-Filler Pro</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 MCA ADT-1 Pro</h1>
+
+        <!-- Saved profiles: click a name to load its data into Version A and auto-fill the open MCA tab. -->
+        <div class="profile-list-box">
+            <div class="profile-list-header">
+                <strong>📋 Saved Profiles</strong>
+                <span>
+                    <button id="addProfileBtn" class="btn-mini">+ Add current as profile</button>
+                    <button id="dumpFieldsBtn" class="btn-mini" title="Logs all MCA form fields to the popup console">🔎 Dump MCA fields</button>
+                </span>
+            </div>
+            <ul id="profileList" class="profile-list">
+                <li class="profile-empty">Loading…</li>
+            </ul>
+            <div id="profileStatus" class="profile-status"></div>
+        </div>
+
+        <!-- Version Selector -->
+        <div class="version-selector">
+            <button class="version-btn active" data-version="a">⚡ Smart Auto-Fill (A)</button>
+            <button class="version-btn" data-version="b">🎯 One-Click (B)</button>
+        </div>
+
+        <!-- VERSION A: Smart Pincode Auto-Fill -->
+        <div id="version-a" class="version-content active">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="auditor-firm">Auditor Firm Info</button>
+                <button class="tab-btn" data-tab="auditor-details">Auditor Details</button>
+                <button class="tab-btn" data-tab="period">Period & Company</button>
+            </div>
+
+            <!-- Tab 1: Auditor Firm Info -->
+            <div id="auditor-firm" class="tab-content active">
+                <h3>Auditor Firm Information</h3>
+                <div class="form-group">
+                    <label>Category of Auditor:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="category" value="firm" checked> Auditor's Firm</label>
+                        <label><input type="radio" name="category" value="individual"> Individual</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Firm Registration Number:</label>
+                    <input type="text" id="firmRegNumber" placeholder="Enter Firm Registration Number">
+                </div>
+
+                <div class="form-group">
+                    <label>Name of Auditor's Firm:</label>
+                    <input type="text" id="firmName" placeholder="Enter Firm Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Income Tax PAN (Firm):</label>
+                    <input type="text" id="firmPAN" placeholder="Enter PAN of Firm">
+                </div>
+
+                <div class="form-group">
+                    <label>Address Line 1 (Firm):</label>
+                    <input type="text" id="firmAddr1" placeholder="Enter Address Line 1">
+                </div>
+
+                <div class="form-group">
+                    <label>Address Line 2 (Firm):</label>
+                    <input type="text" id="firmAddr2" placeholder="Enter Address Line 2 (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label>📍 Pin Code/Zip Code (Firm):</label>
+                    <input type="text" id="firmPincode" placeholder="Enter 6-digit pincode" maxlength="6">
+                    <small style="color: #666;">✨ Smart validation & auto-fetch areas</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Area/Locality (Firm):</label>
+                    <select id="firmArea">
+                        <option value="">-- Auto-loads based on pincode --</option>
+                    </select>
+                    <small>Auto-populated when you enter pincode</small>
+                </div>
+
+                <div class="form-group">
+                    <label>City (Firm):</label>
+                    <input type="text" id="firmCity" placeholder="Enter City (auto-filled)">
+                </div>
+
+                <div class="form-group">
+                    <label>District (Firm):</label>
+                    <input type="text" id="firmDistrict" placeholder="Enter District (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label>State/UT (Firm):</label>
+                    <input type="text" id="firmState" placeholder="Enter State/UT (auto-filled)">
+                </div>
+
+                <div class="form-group">
+                    <label>Email ID (Firm):</label>
+                    <input type="email" id="firmEmail" placeholder="Enter Email">
+                </div>
+
+                <div class="form-group">
+                    <label>Membership Number (signing balance sheet):</label>
+                    <input type="text" id="membershipNum" placeholder="Enter Membership Number">
+                </div>
+            </div>
+
+            <!-- Tab 2: Auditor Details -->
+            <div id="auditor-details" class="tab-content">
+                <h3>Individual Auditor Information</h3>
+
+                <div class="form-group">
+                    <label>Name of Auditor:</label>
+                    <input type="text" id="auditorName" placeholder="Enter Auditor Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Income Tax PAN (Auditor):</label>
+                    <input type="text" id="auditorPAN" placeholder="Enter PAN of Auditor">
+                </div>
+
+                <div class="form-group">
+                    <label>Address Line 1 (Auditor):</label>
+                    <input type="text" id="auditorAddr1" placeholder="Enter Address Line 1">
+                </div>
+
+                <div class="form-group">
+                    <label>Address Line 2 (Auditor):</label>
+                    <input type="text" id="auditorAddr2" placeholder="Enter Address Line 2 (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label>📍 Pin Code/Zip Code (Auditor):</label>
+                    <input type="text" id="auditorPincode" placeholder="Enter 6-digit pincode" maxlength="6">
+                    <small style="color: #666;">✨ Smart validation & auto-fetch areas</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Area/Locality (Auditor):</label>
+                    <select id="auditorArea">
+                        <option value="">-- Auto-loads based on pincode --</option>
+                    </select>
+                    <small>Auto-populated when you enter pincode</small>
+                </div>
+
+                <div class="form-group">
+                    <label>City (Auditor):</label>
+                    <input type="text" id="auditorCity" placeholder="Enter City (auto-filled)">
+                </div>
+
+                <div class="form-group">
+                    <label>District (Auditor):</label>
+                    <input type="text" id="auditorDistrict" placeholder="Enter District (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label>State/UT (Auditor):</label>
+                    <input type="text" id="auditorState" placeholder="Enter State/UT (auto-filled)">
+                </div>
+
+                <div class="form-group">
+                    <label>Email ID (Auditor):</label>
+                    <input type="email" id="auditorEmail" placeholder="Enter Email">
+                </div>
+            </div>
+
+            <!-- Tab 3: Period & Company -->
+            <div id="period" class="tab-content">
+                <h3>Appointment Details</h3>
+
+                <div class="form-group">
+                    <label>3(a) Company falls under a class as per section 139(2)</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="companyClass" value="Yes"> Yes</label>
+                        <label><input type="radio" name="companyClass" value="No" checked> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>3(b) Nature of appointment</label>
+                    <select id="natureAppointment">
+                        <option value="">Select appointment type</option>
+                        <option>First auditor by Board of directors/ members/ C&amp;AG</option>
+                        <option>Appointment of Auditors in AGM</option>
+                        <option>Re-appointment of Auditors in AGM</option>
+                        <option>Appointment/ Re-appointment by C&amp;AG</option>
+                        <option>Auditor appointed in case of casual vacancy</option>
+                        <option>Auditor appointed in case of non-re-appointment/ removal of the previous auditor</option>
+                        <option>Auditor appointed by the Tribunal</option>
+                        <option>Auditor appointed by Central Government</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>3(c) Auditor appointed in the AGM</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="appointedInAGM" value="Yes"> Yes</label>
+                        <label><input type="radio" name="appointedInAGM" value="No" checked> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>4(a) Date of appointment</label>
+                    <input type="text" id="appointmentDate" placeholder="DD/MM/YYYY" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>4(b) Joint auditors appointed</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="jointAuditors" value="Yes"> Yes</label>
+                        <label><input type="radio" name="jointAuditors" value="No" checked> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>4(c) Number of auditors appointed</label>
+                    <input type="number" id="auditorCount" min="1" value="1" placeholder="Enter number">
+                </div>
+
+                <h3>Period of Appointment</h3>
+
+                <div class="form-group">
+                    <label>From Date (DD/MM/YYYY):</label>
+                    <input type="text" id="fromDate" placeholder="DD/MM/YYYY" maxlength="10">
+                </div>
+
+                <div class="form-group">
+                    <label>To Date (DD/MM/YYYY):</label>
+                    <input type="text" id="toDate" placeholder="DD/MM/YYYY" maxlength="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Financial Years:</label>
+                    <input type="number" id="finYears" placeholder="Enter Number of Financial Years" min="1">
+                </div>
+
+                <h3>Company Information</h3>
+
+                <div class="form-group">
+                    <label>Within 20 companies limit:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="withinLimit" value="yes" checked> Yes</label>
+                        <label><input type="radio" name="withinLimit" value="no"> No</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Within Financial Year or part:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="withinYear" value="yes" checked> Yes</label>
+                        <label><input type="radio" name="withinYear" value="no"> No</label>
+                    </div>
+                </div>
+
+                <h3>Previous Appointment & Board Recommendation</h3>
+                <div class="form-group">
+                    <label>4(m) Previous tenure in this company</label>
+                    <input type="text" id="previousTenure" placeholder="Describe previous tenure, if applicable">
+                </div>
+                <div class="form-group">
+                    <label>4(n) Previous appointment financial years</label>
+                    <input type="number" id="previousYears" min="0" placeholder="Enter number">
+                </div>
+                <div class="form-group">
+                    <label>4(o) Previous appointment serial number</label>
+                    <input type="number" id="previousSerial" min="1" value="1">
+                </div>
+                <div class="form-group">
+                    <label>4(p) Previous firm registration number</label>
+                    <input type="text" id="previousFirmReg" placeholder="Enter FRN if applicable">
+                </div>
+                <div class="form-group">
+                    <label>4(q) Previous auditor membership number</label>
+                    <input type="text" id="previousMembership" placeholder="Enter membership number if applicable">
+                </div>
+                <div class="form-group">
+                    <label>4(r) Previous financial year start date</label>
+                    <input type="text" id="previousFromDate" placeholder="DD/MM/YYYY" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>4(s) Previous financial year end date</label>
+                    <input type="text" id="previousToDate" placeholder="DD/MM/YYYY" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>5. Audit Committee recommendation considered by the Board</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="auditCommittee" value="Yes"> Yes</label>
+                        <label><input type="radio" name="auditCommittee" value="No"> No</label>
+                        <label><input type="radio" name="auditCommittee" value="Not Applicable" checked> Not Applicable</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Remuneration details furnished:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="remuneration" value="yes" checked> Yes</label>
+                        <label><input type="radio" name="remuneration" value="no"> No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="saveDataA" class="btn btn-save">💾 Save Data</button>
+                <button id="fillFormA" class="btn btn-primary">⚡ Smart Auto-Fill</button>
+                <button id="clearFormA" class="btn btn-secondary">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <!-- VERSION B: One-Click Ultra-Automation -->
+        <div id="version-b" class="version-content">
+            <h3>🎯 One-Click Setup</h3>
+            <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Set your default auditor details once. Then use one-click filling for all forms!</p>
+
+            <div class="form-group">
+                <label>Category:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="categoryB" value="firm" checked> Firm</label>
+                    <label><input type="radio" name="categoryB" value="individual"> Individual</label>
+                </div>
+            </div>
+
+            <div id="firmSectionB" class="form-section">
+                <div class="form-group">
+                    <label>Firm Name *</label>
+                    <input type="text" id="firmNameB" placeholder="Your firm name">
+                </div>
+                <div class="form-group">
+                    <label>Firm PAN *</label>
+                    <input type="text" id="firmPANB" placeholder="e.g., AAAPQ1234A">
+                </div>
+                <div class="form-group">
+                    <label>Firm Registration Number *</label>
+                    <input type="text" id="firmRegB" placeholder="Registration number">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 1 *</label>
+                    <input type="text" id="firmAddr1B" placeholder="Street address">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 2</label>
+                    <input type="text" id="firmAddr2B" placeholder="Suite/Apt (optional)">
+                </div>
+                <div class="form-group">
+                    <label>📍 Pincode * (6 digits)</label>
+                    <input type="text" id="firmPincodeB" placeholder="400001" maxlength="6">
+                    <small style="color: #666;">✨ On blur: fetches post offices for that pincode</small>
+                </div>
+                <div class="form-group">
+                    <label>Area/Locality * (pick the correct one)</label>
+                    <select id="firmAreaB">
+                        <option value="">-- Enter pincode above --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>City (Firm)</label>
+                    <input type="text" id="firmCityB" placeholder="Auto-filled from pincode">
+                </div>
+                <div class="form-group">
+                    <label>State/UT (Firm)</label>
+                    <input type="text" id="firmStateB" placeholder="Auto-filled from pincode">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="firmEmailB" placeholder="contact@firm.com">
+                </div>
+                <div class="form-group">
+                    <label>Membership Number</label>
+                    <input type="text" id="membershipB" placeholder="F1234567">
+                </div>
+            </div>
+
+            <div id="auditorSectionB" class="form-section">
+                <div class="form-group">
+                    <label>Auditor Name *</label>
+                    <input type="text" id="auditorNameB" placeholder="Full name">
+                </div>
+                <div class="form-group">
+                    <label>Auditor PAN *</label>
+                    <input type="text" id="auditorPANB" placeholder="e.g., ABCPS9876D">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 1 *</label>
+                    <input type="text" id="auditorAddr1B" placeholder="Street address">
+                </div>
+                <div class="form-group">
+                    <label>Address Line 2</label>
+                    <input type="text" id="auditorAddr2B" placeholder="Suite/Apt (optional)">
+                </div>
+                <div class="form-group">
+                    <label>📍 Pincode * (6 digits)</label>
+                    <input type="text" id="auditorPincodeB" placeholder="560001" maxlength="6">
+                    <small style="color: #666;">✨ On blur: fetches post offices for that pincode</small>
+                </div>
+                <div class="form-group">
+                    <label>Area/Locality * (pick the correct one)</label>
+                    <select id="auditorAreaB">
+                        <option value="">-- Enter pincode above --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>City (Auditor)</label>
+                    <input type="text" id="auditorCityB" placeholder="Auto-filled from pincode">
+                </div>
+                <div class="form-group">
+                    <label>State/UT (Auditor)</label>
+                    <input type="text" id="auditorStateB" placeholder="Auto-filled from pincode">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="auditorEmailB" placeholder="auditor@email.com">
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Appointment Details</h3>
+            <div class="form-group">
+                <label>3(a) Company falls under section 139(2) class</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="companyClassB" value="Yes"> Yes</label>
+                    <label><input type="radio" name="companyClassB" value="No" checked> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3(b) Nature of appointment</label>
+                <select id="natureAppointmentB">
+                    <option value="">Select appointment type</option>
+                    <option>First auditor by Board of directors/ members/ C&amp;AG</option>
+                    <option>Appointment of Auditors in AGM</option>
+                    <option>Re-appointment of Auditors in AGM</option>
+                    <option>Appointment/ Re-appointment by C&amp;AG</option>
+                    <option>Auditor appointed in case of casual vacancy</option>
+                    <option>Auditor appointed in case of non-re-appointment/ removal of the previous auditor</option>
+                    <option>Auditor appointed by the Tribunal</option>
+                    <option>Auditor appointed by Central Government</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>3(c) Auditor appointed in AGM</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="appointedInAGMB" value="Yes"> Yes</label>
+                    <label><input type="radio" name="appointedInAGMB" value="No" checked> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4(a) Date of appointment</label>
+                <input type="text" id="appointmentDateB" placeholder="DD/MM/YYYY" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>4(b) Joint auditors appointed</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="jointAuditorsB" value="Yes"> Yes</label>
+                    <label><input type="radio" name="jointAuditorsB" value="No" checked> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4(c) Number of auditors appointed</label>
+                <input type="number" id="auditorCountB" min="1" value="1" placeholder="Enter number">
+            </div>
+
+            <h3>Previous Appointment &amp; Board Recommendation</h3>
+            <div class="form-group">
+                <label>4(m) Previous tenure in this company</label>
+                <input type="text" id="previousTenureB" placeholder="Describe previous tenure, if applicable">
+            </div>
+            <div class="form-group">
+                <label>4(n) Previous appointment financial years</label>
+                <input type="number" id="previousYearsB" min="0" placeholder="Enter number">
+            </div>
+            <div class="form-group">
+                <label>4(o) Previous appointment serial number</label>
+                <input type="number" id="previousSerialB" min="1" value="1">
+            </div>
+            <div class="form-group">
+                <label>4(p) Previous firm registration number</label>
+                <input type="text" id="previousFirmRegB" placeholder="Enter FRN if applicable">
+            </div>
+            <div class="form-group">
+                <label>4(q) Previous auditor membership number</label>
+                <input type="text" id="previousMembershipB" placeholder="Enter membership number if applicable">
+            </div>
+            <div class="form-group">
+                <label>4(r) Previous financial year start date</label>
+                <input type="text" id="previousFromDateB" placeholder="DD/MM/YYYY" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>4(s) Previous financial year end date</label>
+                <input type="text" id="previousToDateB" placeholder="DD/MM/YYYY" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>5. Audit Committee recommendation considered by the Board</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="auditCommitteeB" value="Yes"> Yes</label>
+                    <label><input type="radio" name="auditCommitteeB" value="No"> No</label>
+                    <label><input type="radio" name="auditCommitteeB" value="Not Applicable" checked> Not Applicable</label>
+                </div>
+            </div>
+
+            <h3>Default Appointment Period</h3>
+            <div class="form-group">
+                <label>From Date (DD/MM/YYYY)</label>
+                <input type="text" id="fromDateB" placeholder="01/04/2024" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>To Date (DD/MM/YYYY)</label>
+                <input type="text" id="toDateB" placeholder="31/03/2025" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>Financial Years</label>
+                <input type="number" id="finYearsB" placeholder="1" min="1" value="1">
+            </div>
+
+            <div class="button-group">
+                <button id="saveDefaultsB" class="btn btn-save">💾 Save Defaults</button>
+                <button id="oneClickB" class="btn btn-primary btn-large">🎯 ONE-CLICK FILL</button>
+                <button id="clearDefaultsB" class="btn btn-secondary">🗑️ Clear Defaults</button>
+            </div>
+
+            <div id="statusB" class="status"></div>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="Storage.js"></script>
+    <script src="Popup.js"></script>
+</body>
+</html>
